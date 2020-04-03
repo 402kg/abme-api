@@ -16,9 +16,11 @@ export async function getSession(token) {
                 return
             }
 
-            const payload = JSON.parse(result.source)
+            const payload = result && JSON.parse(result.source)
 
-            resolve({ ...payload, token })
+            resolve(
+                payload ? { ...payload, token } : null,
+            )
         })
     })
 }

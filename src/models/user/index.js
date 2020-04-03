@@ -5,8 +5,32 @@ import getRandom from '../../utils/random'
 
 import { setPassword } from './service'
 
-const userSchema = new mongoose.Schema({
+const linksSchema = new mongoose.Schema({
     name: String,
+    url: String,
+})
+
+const projectsSchema = new mongoose.Schema({
+    name: String,
+    date: String,
+    description: String,
+    links: [linksSchema],
+    stack: [String],
+}, { timestamps: true, id: false })
+
+const skillsSchema = new mongoose.Schema({
+    name: String,
+    props: [String],
+}, { timestamps: true, id: false })
+
+const userSchema = new mongoose.Schema({
+    about: String,
+    name: String,
+    position: String,
+
+    links: [linksSchema],
+    projects: [projectsSchema],
+    skills: [skillsSchema],
 
     uuid: {
         default: uuid.generate,
