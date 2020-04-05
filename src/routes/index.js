@@ -1,10 +1,10 @@
 import { Router } from 'express'
 
 import ErrorRoute from './error'
+import ProfileRoute from './profile'
 import SessionRoute from './session'
 import StatusRoute from './status'
 import UserRoute from './user'
-import ProfileRoute from './profile'
 
 const router = Router()
 

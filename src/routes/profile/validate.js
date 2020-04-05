@@ -5,7 +5,7 @@ import { ERROR_REQUEST_VALIDATION } from '../../constants'
 
 const linksScheme = Joi.object({
     name: Joi.string().required(),
-    url: Joi.string().required(),
+    url: Joi.string().uri().required(),
 })
 
 const skillsSchema = Joi.object({
@@ -16,8 +16,8 @@ const skillsSchema = Joi.object({
 })
 
 const projectsSchema = Joi.object({
-    date: Joi.string().required(),
-    description: Joi.string().required(),
+    date: Joi.string(),
+    description: Joi.string(),
     links: Joi.array().items(linksScheme),
     name: Joi.string().required(),
     stack: Joi.array().items(

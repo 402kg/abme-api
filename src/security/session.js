@@ -3,7 +3,7 @@ import moment from 'moment'
 import equal from 'fast-deep-equal'
 
 import Redis from '../services/redis'
-import getRandom from '../utils/random'
+import getHash from '../utils/hash'
 
 export async function getSession(token) {
     const redis = await Redis()
@@ -27,7 +27,7 @@ export async function getSession(token) {
 
 export async function createSession(user, useragent, ip) {
     const redis = await Redis()
-    const token = getRandom()
+    const token = getHash()
 
     return new Promise((resolve, reject) => {
         const payload = JSON.stringify({

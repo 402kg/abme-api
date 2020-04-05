@@ -1,3 +1,19 @@
-export const SAFE_USER = 'about position links.name links.url projects skills.props skills.name name email uuid -_id'
+export const SAFE_USER = `
+    -_id
+    about
+    email
+    links.name
+    links.url
+    name
+    position
+    projects.date
+    projects.description
+    projects.links
+    projects.name
+    projects.stack
+    skills.name
+    skills.props
+    uuid
+`
 
 export default { }

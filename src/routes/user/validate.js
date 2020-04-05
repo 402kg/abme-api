@@ -15,6 +15,10 @@ async function createUser(request, response, next) {
 
         name: Joi.string()
             .required(),
+
+        username: Joi.string()
+            .min(3)
+            .required(),
     })
 
     try {
@@ -48,7 +52,26 @@ async function pingByEmail(request, response, next) {
     }
 }
 
+async function pingByUsername(request, response, next) {
+    const schema = Joi.object({
+        username: Joi.string()
+            .required(),
+    })
+
+    try {
+        await schema.validateAsync(request.params)
+        await next()
+    } catch (error) {
+        const message = validate(error)
+
+        response
+            .status(ERROR_REQUEST_VALIDATION.status)
+            .end(message)
+    }
+}
+
 export default {
     createUser,
     pingByEmail,
+    pingByUsername,
 }

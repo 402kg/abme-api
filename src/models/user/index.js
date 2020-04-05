@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import uuid from 'shortid'
 
-import getRandom from '../../utils/random'
+import getHash from '../../utils/hash'
 
 import { setPassword } from './service'
 
@@ -44,11 +44,24 @@ const userSchema = new mongoose.Schema({
         unique: true,
         type: String,
     },
+    username: {
+        index: true,
+        required: true,
+        unique: true,
+        type: String,
+    },
     hash: {
-        default: getRandom,
+        default: getHash,
         index: true,
         type: String,
     },
+
+    reset: {
+        default: getHash,
+        index: true,
+        type: String,
+    },
+
     sessions: {
         type: [String],
     },
