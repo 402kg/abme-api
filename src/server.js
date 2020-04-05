@@ -1,13 +1,14 @@
-import bodyParser from 'body-parser'
 import Express from 'express'
+import Morgan from 'morgan'
+
+import bodyParser from 'body-parser'
 import http from 'http'
-import morgan from 'morgan'
 import useragent from 'express-useragent'
 
 import routes from './routes'
 import { handleRequest } from './services/logger'
 
-const logger = morgan(
+const logger = Morgan(
     ':method :url :status :response-time ms - :res[content-length]',
     { stream: handleRequest.stream },
 )

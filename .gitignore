@@ -8,7 +8,7 @@
 *start*
 
 tmp
-dist
+out
 logs
 node_modules/
 pids
