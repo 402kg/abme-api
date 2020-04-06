@@ -30,7 +30,7 @@ steps:
   - name: make/image
     image: plugins/docker
     settings:
-      repo: iknpx/portyx-api
+      repo: docker.pkg.github.com/iknpx/repository-name/portyx-api
       purge: true
       insecure: false
       auth:
