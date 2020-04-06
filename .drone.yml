@@ -33,12 +33,12 @@ steps:
       repo: iknpx/portyx-api
       purge: true
       insecure: false
+      auth:
+        from_secret: docker_token
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      token:
-        from_secret: docker_token
     when:
       branch:
         - master
