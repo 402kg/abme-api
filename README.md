@@ -11,7 +11,9 @@
 - `MAIL_FROM` Mailgun sender email
 - `MAIL_HOST` Mailgun host
 - `MAIL_KEY` Mailgun key
-- `MONGODB_URL` MongoDB connection string
+- `MONGODB_COLLECTION` MongoDB collection
+- `MONGODB_HOST` MongoDB connection host
+- `MONGODB_PORT` MongoDB connection port
 - `NAME` Application name
 - `PORT` Rest server port
 - `REDIS_HOST` Redis host

@@ -7,7 +7,7 @@ import { handleError, handleLog } from './logger'
 
 promisifyAll(mongoose)
 
-const URL = config.get('MONGODB:URL')
+const URL = `mongodb://${config.get('MONGODB:HOST')}:${config.get('MONGODB:PORT')}/${config.get('MONGODB:COLLECTION')}`
 
 let retryes = 100
 let connected = false
