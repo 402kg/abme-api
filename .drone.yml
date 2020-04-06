@@ -31,10 +31,8 @@ steps:
     image: plugins/docker
     settings:
       repo: iknpx/portyx-api
-      purge: true
-      insecure: false
       password:
-        from_secret: docker_token
+        from_secret: docker_password
       username:
         from_secret: docker_username
     when:
