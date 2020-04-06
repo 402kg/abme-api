@@ -30,6 +30,7 @@ steps:
   - name: make/image
     image: plugins/docker
     settings:
+      registry: docker.pkg.github.com
       repo: docker.pkg.github.com/iknpx/portyx-api/master
       purge: true
       insecure: false
