@@ -34,7 +34,7 @@ steps:
       repo: docker.pkg.github.com/iknpx/portyx-api/master
       purge: true
       insecure: false
-      auth:
+      password:
         from_secret: docker_token
       username:
         from_secret: docker_username
