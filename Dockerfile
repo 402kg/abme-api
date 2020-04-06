@@ -12,4 +12,4 @@ RUN yarn --silent && \
     cp -r node_modules /usr/app/node_modules
 
 WORKDIR /usr/app
-CMD ['node', './index.js']
+CMD ["node", "./index.js"]
