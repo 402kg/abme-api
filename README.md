@@ -21,7 +21,7 @@
 
 ### TODO
 - [ ] Api specification
-- [ ] Download as MD service
-- [ ] Download as PDF service
+- [x] Download as MD service
+- [x] Download as PDF service
 - [ ] Stylize emails
 - [ ] README.md
