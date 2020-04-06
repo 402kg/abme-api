@@ -1,6 +1,6 @@
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
-import RouteMiddleware from '../../../services/route'
 import { handleError } from '../../../services/logger'
 import { getSession, removeSession } from '../../../services/session'
 import { SELECT_USER } from '../../../schemas/user'
@@ -10,7 +10,7 @@ import {
     FATAL_GET_USER,
 } from '../../../constants'
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     async handle({ session }, response) {
         try {
             const user = await User.findOne({ uuid: session.uuid })
@@ -44,4 +44,4 @@ class HandleMiddleware extends RouteMiddleware {
     }
 }
 
-export default new HandleMiddleware({ limit: 100, time: 10 })
+export default new RouteMiddleware({ limit: 100, time: 10 })

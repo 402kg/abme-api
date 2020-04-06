@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import uuid from 'shortid'
 
+import config from '../config'
 import getHash from '../services/hash'
 
 import email, { SELECT_EMAIL } from './email'
@@ -11,6 +12,7 @@ import skill, { SELECT_SKILLS } from './skill'
 export const SELECT_USER = `
     -_id
     about
+    icon
     name
     position
     username
@@ -30,6 +32,11 @@ export default new mongoose.Schema({
     links: [link],
     projects: [project],
     skills: [skill],
+
+    icon: {
+        type: String,
+        default: config.get('ASSETS:ICON'),
+    },
 
     email: {
         index: true,

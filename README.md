@@ -2,9 +2,9 @@
 
 ### Environment variables
 - `HOST` Application host, used for generate links
-- `LOGS_PATH` Logs path directory
 - `LOGS_ACCESS` Access locs file name
 - `LOGS_ERROR` Error locs file name
+- `LOGS_PATH` Logs path directory
 - `MAIL_DOMAIN` Mailgun domain
 - `MAIL_FROM` Mailgun sender email
 - `MAIL_HOST` Mailgun host
@@ -20,12 +20,8 @@
 ...
 
 ### TODO
-- [ ] Add application api description
-- [ ] Login with magic link
-- [ ] Login with Gihub
-- [ ] Login with Gmail
-- [ ] Reset password link TTL
-- [ ] Setup deployment
-- [ ] Add cache layer
+- [ ] Api specification
+- [ ] Download as MD service
+- [ ] Download as PDF service
 - [ ] Stylize emails
-- [ ] Finalize README.md
+- [ ] README.md

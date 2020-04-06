@@ -1,13 +1,14 @@
 import Joi from '@hapi/joi'
 
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
-import RouteMiddleware from '../../../services/route'
+import cache from '../../../services/cache'
 import { handleError } from '../../../services/logger'
 import { SELECT_USER } from '../../../schemas/user'
 
 import {
-    FATAL_MONGODB_PROVIDER,
+    FATAL_PATCH_USER,
 } from '../../../constants'
 
 const bodySchema = Joi.object({
@@ -18,6 +19,7 @@ const bodySchema = Joi.object({
             url: Joi.string().required(),
         }),
     ),
+    icon: Joi.string(),
     position: Joi.string(),
     projects: Joi.array().items(
         Joi.object({
@@ -45,7 +47,7 @@ const bodySchema = Joi.object({
     ),
 })
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     constructor(props) {
         super(props)
 
@@ -63,15 +65,17 @@ class HandleMiddleware extends RouteMiddleware {
                 },
             )
 
+            await cache.remove(user.username)
+
             response.json(user)
         } catch (error) {
             handleError(error)
 
             response
-                .status(FATAL_MONGODB_PROVIDER.status)
-                .end(FATAL_MONGODB_PROVIDER.message)
+                .status(FATAL_PATCH_USER.status)
+                .end(FATAL_PATCH_USER.message)
         }
     }
 }
 
-export default new HandleMiddleware({ limit: 100, time: 10 })
+export default new RouteMiddleware({ limit: 100, time: 10 })

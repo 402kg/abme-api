@@ -1,8 +1,9 @@
 import Joi from '@hapi/joi'
 
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
-import RouteMiddleware from '../../../services/route'
+import cache from '../../../services/cache'
 import { handleError } from '../../../services/logger'
 import { SELECT_USER } from '../../../schemas/user'
 
@@ -17,7 +18,7 @@ const paramsSchema = Joi.object({
         .required(),
 })
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     constructor(props) {
         super(props)
 
@@ -26,10 +27,18 @@ class HandleMiddleware extends RouteMiddleware {
 
     async handle({ params: { username } }, response) {
         try {
-            const user = await User.findOne({ username })
+            const cacheValue = await cache.get(username)
+
+            if (cacheValue) {
+                response.json(cacheValue)
+
+                return
+            }
+
+            const dbValue = await User.findOne({ username })
                 .select(SELECT_USER)
 
-            if (!user) {
+            if (!dbValue) {
                 response
                     .status(ERROR_NOT_FOUND.status)
                     .end(ERROR_NOT_FOUND.message)
@@ -37,7 +46,9 @@ class HandleMiddleware extends RouteMiddleware {
                 return
             }
 
-            response.json(user)
+            await cache.set(username, dbValue)
+
+            response.json(dbValue)
         } catch (error) {
             handleError(error)
 
@@ -48,4 +59,4 @@ class HandleMiddleware extends RouteMiddleware {
     }
 }
 
-export default new HandleMiddleware({ limit: 10, time: 6 })
+export default new RouteMiddleware({ limit: 10, time: 6 })

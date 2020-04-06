@@ -1,4 +1,4 @@
-import RouteMiddleware from '../../../services/route'
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
 import getHash from '../../../services/hash'
@@ -10,7 +10,7 @@ import {
     SUCCESS_EMAIL_CONFIRMED,
 } from '../../../constants'
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     async handle(request, response) {
         try {
             const token = request.headers['confirm-token']
@@ -51,4 +51,4 @@ class HandleMiddleware extends RouteMiddleware {
     }
 }
 
-export default new HandleMiddleware({ limit: 100, time: 10 })
+export default new RouteMiddleware({ limit: 100, time: 10 })

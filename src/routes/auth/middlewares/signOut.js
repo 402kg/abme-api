@@ -1,4 +1,4 @@
-import RouteMiddleware from '../../../services/route'
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
 import { handleError } from '../../../services/logger'
@@ -10,7 +10,7 @@ import {
     SUCCESS_REMOVE_SESSION,
 } from '../../../constants'
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     async handle({ headers, session }, response) {
         try {
             const { authorization } = headers
@@ -45,4 +45,4 @@ class HandleMiddleware extends RouteMiddleware {
     }
 }
 
-export default new HandleMiddleware({ limit: 100, time: 10 })
+export default new RouteMiddleware({ limit: 100, time: 10 })

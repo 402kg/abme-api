@@ -25,6 +25,7 @@ export const FATAL_SESSION_PROVIDER = { status: 500, message: 'SESSION EXCEPTION
 export const FATAL_CREATE_SESSION = { status: 500, message: 'CREATE SESSION EXCEPTION' }
 export const FATAL_CREATE_USER = { status: 500, message: 'CREATE USER EXCEPTION' }
 export const FATAL_GET_USER = { status: 500, message: 'GET USER EXCEPTION' }
+export const FATAL_PATCH_USER = { status: 500, message: 'PATCH USER EXCEPTION' }
 export const FATAL_REMOVE_SESSION = { status: 500, message: 'REMOVE SESSION EXCEPTION' }
 export const FATAL_RESET_PASSWORD = { status: 500, message: 'RESET PASSWORD EXCEPTION' }
 export const FATAL_SET_PASSWORD = { status: 500, message: 'SET PASSWORD EXCEPTION' }

@@ -16,7 +16,6 @@ router.put(
     emailConfirm.handle,
 )
 
-
 router.delete(
     '/token/:token',
     deleteToken.debounce,

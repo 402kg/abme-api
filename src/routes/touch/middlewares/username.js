@@ -1,8 +1,8 @@
 import Joi from '@hapi/joi'
 
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
-import RouteMiddleware from '../../../services/route'
 import { handleError } from '../../../services/logger'
 
 import {
@@ -16,7 +16,7 @@ export const paramsSchema = Joi.object({
         .required(),
 })
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     constructor(props) {
         super(props)
 
@@ -48,4 +48,4 @@ class HandleMiddleware extends RouteMiddleware {
     }
 }
 
-export default new HandleMiddleware({ limit: 10, time: 6 })
+export default new RouteMiddleware({ limit: 10, time: 6 })

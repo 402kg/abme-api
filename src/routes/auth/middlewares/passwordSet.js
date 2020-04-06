@@ -1,6 +1,6 @@
 import Joi from '@hapi/joi'
 
-import RouteMiddleware from '../../../services/route'
+import Route from '../../../services/route'
 import User from '../../../models/user'
 
 import getHash from '../../../services/hash'
@@ -19,7 +19,7 @@ const bodySchema = Joi.object({
         .required(),
 })
 
-class HandleMiddleware extends RouteMiddleware {
+class RouteMiddleware extends Route {
     constructor(props) {
         super(props)
 
@@ -33,7 +33,7 @@ class HandleMiddleware extends RouteMiddleware {
             const { password } = request.body
 
             if (!token || token.length < 120) {
-                await response
+                response
                     .status(ERROR_FORBIDDEN.status)
                     .end(ERROR_FORBIDDEN.message)
 
@@ -43,7 +43,7 @@ class HandleMiddleware extends RouteMiddleware {
             const user = await User.findOne({ reset: token })
 
             if (!user) {
-                await response
+                response
                     .status(ERROR_UNAUTHORIZED.status)
                     .end(ERROR_UNAUTHORIZED.message)
 
@@ -68,4 +68,4 @@ class HandleMiddleware extends RouteMiddleware {
     }
 }
 
-export default new HandleMiddleware({ limit: 100, time: 10 })
+export default new RouteMiddleware({ limit: 100, time: 10 })
