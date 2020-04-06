@@ -1,5 +1,7 @@
 # portyx-api
 
+[![Build Status](https://drone.dayler.dev/api/badges/iknpx/portyx-api/status.svg)](https://drone.dayler.dev/iknpx/portyx-api)
+
 ### Environment variables
 - `HOST` Application host, used for generate links
 - `LOGS_ACCESS` Access locs file name

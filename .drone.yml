@@ -37,6 +37,8 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+      token:
+        from_secret: docker_token
     when:
       branch:
         - master
