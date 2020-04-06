@@ -19,11 +19,21 @@
 - `SENTRY_DSN` Sentry dsn
 
 ### API
-...
+- [Postman](https://www.getpostman.com/collections/b89d387c6a6dae59d0db)
+
+### Running example
+```bash
+docker run \
+    -e MAIL_KEY=[string] \
+    -e MONGODB_URL=[string] \
+    -e REDIS_HOST=[string] \
+    -e SENTRY_DSN=[string] \
+    -p [number]:3000 \
+    iknpx/portyx-api
+```
 
 ### TODO
 - [ ] Api specification
 - [x] Download as MD service
 - [x] Download as PDF service
 - [ ] Stylize emails
-- [ ] README.md
