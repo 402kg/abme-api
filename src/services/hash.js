@@ -1,7 +1,7 @@
 import { SHA512 } from 'crypto-js'
 
-export default function () {
-    const rValue = (Math.random() * (25 ** 25))
+export default function (pow = 25) {
+    const rValue = (Math.random() * (pow ** pow))
         .toString(32)
         .replace('.', '')
 

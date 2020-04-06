@@ -7,6 +7,7 @@
 - `LOGS_ERROR` Error locs file name
 - `MAIL_DOMAIN` Mailgun domain
 - `MAIL_FROM` Mailgun sender email
+- `MAIL_HOST` Mailgun host
 - `MAIL_KEY` Mailgun key
 - `MONGODB_URL` MongoDB connection string
 - `NAME` Application name
@@ -20,12 +21,11 @@
 
 ### TODO
 - [ ] Add application api description
-- [ ] Refactor routes and services
 - [ ] Login with magic link
 - [ ] Login with Gihub
 - [ ] Login with Gmail
-- [ ] Create account confimation email
-- [ ] Request reset password email
 - [ ] Reset password link TTL
 - [ ] Setup deployment
+- [ ] Add cache layer
+- [ ] Stylize emails
 - [ ] Finalize README.md

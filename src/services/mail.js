@@ -1,4 +1,5 @@
 import Mailgun from 'mailgun-js'
+
 import path from 'path'
 import pug from 'pug'
 
@@ -8,20 +9,25 @@ import { handleError } from './logger'
 
 const DOMAIN = config.get('MAIL:DOMAIN')
 const FROM = config.get('MAIL:FROM')
+const HOST = config.get('MAIL:HOST')
 const KEY = config.get('MAIL:KEY')
 
 const mailgun = Mailgun({
     apiKey: KEY,
     domain: DOMAIN,
-    host: 'api.eu.mailgun.net',
+    host: HOST,
 }).messages()
 
 function getTemplatePath(template) {
     let templatePath = null
 
     switch (template) {
+    case 'confirm':
+        templatePath = path.resolve(__dirname, '../emails/confirm.pug')
+        break
+
     case 'reset':
-        templatePath = path.resolve(__dirname, '../emails/resetPassword.pug')
+        templatePath = path.resolve(__dirname, '../emails/reset.pug')
         break
 
     default:

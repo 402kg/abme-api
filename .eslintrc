@@ -4,6 +4,7 @@
     "node": true
   },
   "rules": {
+    "class-methods-use-this": ["off"],
     "indent": ["error", 4],
     "semi": ["error", "never"]
   }

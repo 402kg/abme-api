@@ -20,8 +20,8 @@ function connect() {
     mongoose.connect(URL, {
         connectTimeoutMS: 10000,
         useCreateIndex: true,
-        useNewUrlParser: true,
         useFindAndModify: false,
+        useNewUrlParser: true,
     }).then(() => {
         connected = true
         handleLog(`MONGODB :: successful connected to: ${URL}`)
