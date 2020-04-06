@@ -36,7 +36,6 @@ docker run \
 ```
 
 ### TODO
-- [ ] Api specification
 - [x] Download as MD service
 - [x] Download as PDF service
 - [ ] Stylize emails
