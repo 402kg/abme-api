@@ -1,17 +1,20 @@
-.vs_code
 .DS_Store
 .idea
+.vs_code
 
 *.log
 *.pid
 *.pid.lock
 *start*
 
-tmp
-out
+coverage
+dist
 logs
-node_modules/
+out
 pids
+tmp
+
+node_modules/
 
 npm-debug.log*
 yarn-debug.log*

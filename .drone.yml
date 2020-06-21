@@ -27,10 +27,21 @@ steps:
         - push
         - pull_request
 
+  - name: dist
+    image: iknpx/archnode
+    commands:
+      - yarn dist
+    when:
+      branch:
+        - master
+      event:
+        - push
+        - pull_request
+
   - name: make/image
     image: plugins/docker
     settings:
-      repo: iknpx/portyx-api
+      repo: iknpx/abme-api
       password:
         from_secret: docker_password
       username:
@@ -38,6 +49,5 @@ steps:
     when:
       branch:
         - master
-        - develop
       event:
         - push

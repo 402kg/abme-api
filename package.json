@@ -1,10 +1,10 @@
 {
-  "name": "portyx-api",
-  "description": "Dayler API Service",
-  "repository": "git@github.com:iknpx/portyx-api.git",
+  "name": "abme-api",
+  "repository": "git@github.com:402kg/abme-api.git",
   "author": "Iakov Salikov <isalikov@pm.me>",
   "license": "MIT",
   "scripts": {
+    "dist": "gulp dist",
     "lint": "eslint src/.",
     "start": "nodemon --exec babel-node src/index.js"
   },
@@ -54,6 +54,8 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "ghooks": "^2.0.4",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "nodemon": "^1.18.9"
   }
 }

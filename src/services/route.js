@@ -35,7 +35,6 @@ export default class RouteMiddleware {
             return
         }
 
-
         try {
             const session = await getSession(authorization)
 
@@ -69,7 +68,6 @@ export default class RouteMiddleware {
 
             return
         }
-
 
         try {
             const session = await getSession(authorization)

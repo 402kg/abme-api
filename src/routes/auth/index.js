@@ -51,7 +51,6 @@ router.delete(
     signOut.handle,
 )
 
-
 router.put(
     '/sign/up',
     signUp.debounce,

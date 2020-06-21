@@ -1,6 +1,6 @@
-# portyx-api
+# abme-api
 
-[![Build Status](https://drone.dayler.dev/api/badges/iknpx/portyx-api/status.svg)](https://drone.dayler.dev/iknpx/portyx-api)
+[![Build Status](https://drone.dayler.dev/api/badges/402kg/abme-api/status.svg)](https://drone.dayler.dev/402kg/abme-api)
 
 ### Environment variables
 - `HOST` Application host, used for generate links (required)
@@ -20,9 +20,6 @@
 - `REDIS_PORT` Redis port
 - `SENTRY_DSN` Sentry dsn
 
-### API
-- [Postman](https://www.getpostman.com/collections/b89d387c6a6dae59d0db)
-
 ### Running example
 ```bash
 docker run \
@@ -32,10 +29,5 @@ docker run \
     -e REDIS_HOST=[string] \
     -e PORT=3000
     -p [number]:3000 \
-    iknpx/portyx-api
+    iknpx/abme-api
 ```
-
-### TODO
-- [x] Download as MD service
-- [x] Download as PDF service
-- [ ] Stylize emails
